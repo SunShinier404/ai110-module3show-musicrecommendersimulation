@@ -29,6 +29,11 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+>Real world music recommender systems use a combination of collaborative filtering and content-based filtering in order to predict what users will want to listen to next. Using signals such as clicks, watch time, similar users, and metadata, these systems generate candidates, rank them and apply rules to curate a user's feed. 
+
+>For my recommender, I'd like to focus on categorizing by mood, genre, energy, tempo, and artist. Working with Copilot, my 'algorithm recipe' considers genre, mood, and energy as well as tempo, danceability, acousticness, and valence optionally. Each numeric characteristic is scored linearly by calculating the distance from the target value and adding it to the final score, with max raw score being 8.0 if all preferences are given. For missing values, all scores can be normalized to a max of 1.0. There will also be a penalty for repeating the same artist too many times in a row, decreasing the score of a song slightly. This system may over-prioritized genre and energy since those make up a maximum of half the score. Since genre and mood are treated as exact matches, songs with slightly different labels may be overlook, such as pop and indie pop. Additionally, with a small catalog of songs, if one genre is more common than others, naturally more songs of that genre will be recommended, even if it doesn't match the user's preferences.
+
+![CLI Output](outputScreenshot.png)
 ---
 
 ## Getting Started

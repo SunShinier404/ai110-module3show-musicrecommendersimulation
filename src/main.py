@@ -9,14 +9,46 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
-from recommender import load_songs, recommend_songs
+from src.recommender import load_songs, recommend_songs
 
 
 def main() -> None:
-    songs = load_songs("data/songs.csv") 
+    songs = load_songs("data/songs.csv")
 
-    # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    # Sample user profiles. Change active_profile to quickly test different tastes.
+    # Copilot Chat suggested multiple profiles/presets to test different recommendation scenarios.
+    profile_presets = {
+        "happy_pop": {
+            "genre": "pop",
+            "mood": "happy",
+            "energy": 0.80,
+            "valence": 0.82,
+            "danceability": 0.84,
+            "acousticness": 0.20,
+            "tempo_bpm": 122,
+        },
+        "chill_lofi": {
+            "genre": "lofi",
+            "mood": "chill",
+            "energy": 0.38,
+            "valence": 0.60,
+            "danceability": 0.58,
+            "acousticness": 0.82,
+            "tempo_bpm": 78,
+        },
+        "intense_rock": {
+            "genre": "rock",
+            "mood": "intense",
+            "energy": 0.92,
+            "valence": 0.46,
+            "danceability": 0.64,
+            "acousticness": 0.10,
+            "tempo_bpm": 150,
+        },
+    }
+
+    active_profile = "happy_pop"
+    user_prefs = profile_presets[active_profile]
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
 
